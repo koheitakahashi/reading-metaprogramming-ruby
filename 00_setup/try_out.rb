@@ -10,6 +10,7 @@ class TryOut
     @first_name = first_name
     @middle_name = middle_name
     @last_name = last_name
+    @full_name = nil
   end
 
   def full_name
