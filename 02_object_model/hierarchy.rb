@@ -80,17 +80,14 @@ end
 #   c4.increment # => "3"
 # - 定義済みのメソッド (value, value=) は private のままとなっている
 class C4
-  # def initialize
-  #   self.value = 0
-  # end
+  def initialize
+    self.value = 0
+  end
 
   def increment
-    # binding.irb
     if value.nil?
-      # send(:value=, 0)
       self.value = 0
     else
-      # send(:value)
       value
     end
 
