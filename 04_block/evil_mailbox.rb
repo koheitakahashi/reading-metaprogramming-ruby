@@ -32,12 +32,6 @@ class EvilMailbox
     end
   end
 
-  def send_mail(to, body, &block)
-    result = @object.public_send("send_mail", to, body)
-    block.call(result) if block_given?
-    nil
-  end
-
   def receive_mail
     @object.public_send("receive_mail")
   end
