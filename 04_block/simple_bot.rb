@@ -25,21 +25,23 @@
 
 class SimpleBot
   def self.respond(name, &block)
-    store = {}
     store[name] = block
 
     define_method :ask do |respond_name|
-      store[respond_name]&.call
+      self.class.store[respond_name]&.call
     end
   end
 
+  def self.store
+    @store ||= {}
+  end
+
   def self.settings
-    return @settings if defined? @settings
-    @settings = Object.new
+    @settings ||= Object.new
   end
 
   def self.setting(key, value)
-    @settings.define_singleton_method key do
+    settings.define_singleton_method key do
       value
     end
   end
